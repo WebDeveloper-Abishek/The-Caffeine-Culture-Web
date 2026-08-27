@@ -1,0 +1,130 @@
+body {
+  font-family: $font-family-main;
+  background: $color-bg-primary;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+}
+
+/* Reusable heading and body classes */
+
+/* H1 */
+@mixin h1-styles {
+  @include text-styling(
+    $font-family-main,
+    $color-gold,
+    $h1-mobile-size,
+    $h1-mobile-letter-spacing,
+    $h1-mobile-line-height,
+    $h1-desktop-size,
+    $h1-desktop-letter-spacing,
+    $h1-desktop-line-height
+  );
+}
+
+/* H2 */
+@mixin h2-styles {
+  @include text-styling(
+    $font-family-main,
+    $color-coffee-light,
+    $h2-mobile-size,
+    $h2-mobile-letter-spacing,
+    $h2-mobile-line-height,
+    $h2-desktop-size,
+    $h2-desktop-letter-spacing,
+    $h2-desktop-line-height
+  );
+}
+
+/* H3 */
+@mixin h3-styles {
+  font-style: italic;
+  @include text-styling(
+    $font-family-regular,
+    $color-cream,
+    $h3-mobile-size,
+    $h3-mobile-letter-spacing,
+    $h3-mobile-line-height,
+    $h3-desktop-size,
+    $h3-desktop-letter-spacing,
+    $h3-desktop-line-height
+  );
+}
+
+/* H4 */
+@mixin h4-styles {
+  font-weight: 500;
+  @include text-styling(
+    $font-family-sub,
+    $color-accent-amber,
+    $h4-mobile-size,
+    $h4-mobile-letter-spacing,
+    $h4-mobile-line-height,
+    $h4-desktop-size,
+    $h4-desktop-letter-spacing,
+    $h4-desktop-line-height
+  );
+}
+
+/* Body Text */
+@mixin body-text-styles {
+  font-weight: 400;
+  @include text-styling(
+    $font-family-sub,
+    $color-white,
+    $body-mobile-size,
+    $body-mobile-letter-spacing,
+    $body-mobile-line-height,
+    $body-desktop-size,
+    $body-desktop-letter-spacing,
+    $body-desktop-line-height
+  );
+}
+
+/* Apply styles */
+h1,
+.h1-title {
+  @include h1-styles;
+}
+
+h2,
+.h2-subtitle {
+  @include h2-styles;
+}
+
+h3,
+.h3-style {
+  @include h3-styles;
+}
+
+h4,
+.h4-style {
+  @include h4-styles;
+}
+
+p,
+.body-text {
+  @include body-text-styles;
+}
+
+/* Eyebrow Tag */
+.eyebrow {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $color-accent-amber;
+
+  @include tablet-landscape {
+    font-size: 16px;
+    letter-spacing: 0.14em;
+  }
+}

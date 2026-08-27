@@ -1,0 +1,112 @@
+.sg-page {
+  display: flex;
+  flex-direction: column;
+
+  .sg-section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .section-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* ===================
+     COLOR SECTION
+  ==================== */
+
+  .test-color {
+    .color-grid,
+    .gradient-grid {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .colour {
+      width: 120px;
+      height: 120px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba($color-white, 0.08);
+    }
+
+    .colour1 {
+      background: $color-coffee-brown;
+    }
+    .colour2 {
+      background: $color-coffee-light;
+    }
+    .colour3 {
+      background: $color-gold;
+    }
+    .colour4 {
+      background: $color-gold-warm;
+    }
+    .colour5 {
+      background: $color-accent-amber;
+    }
+    .colour6 {
+      background: $color-cream;
+    }
+    .colour7 {
+      background: $color-white;
+    }
+    .colour8 {
+      background: $gradient-hero;
+    }
+    .colour9 {
+      background: $gradient-gold-shimmer;
+    }
+    .colour10 {
+      background: $gradient-amber-glow;
+    }
+  }
+
+  /* =========================
+     TYPOGRAPHY
+  ========================== */
+
+  .typography-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  /* =========================
+     BUTTONS
+  ========================== */
+
+  .button-grid {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  /* =========================
+     LINKS
+  ========================== */
+
+  .links-grid {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+
+  /* =========================
+     SLIDER ARROWS
+  ========================== */
+
+  .arrows-grid {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+}

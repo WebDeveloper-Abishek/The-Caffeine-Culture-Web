@@ -1,0 +1,138 @@
+/* =========================
+   ARROW BASE
+========================= */
+
+%arrow-base {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 1;
+  transition: color 0.4s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    z-index: -1;
+    transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  @include tablet-landscape {
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}
+
+/* ===============
+   DARK ARROW
+=============== */
+
+.dark-arrow {
+  @extend %arrow-base;
+
+  background: $gradient-amber-glow;
+  color: $color-bg-primary;
+  outline: 1px solid rgba($color-gold-warm, 0.5);
+
+  &::after {
+    background: $gradient-hero;
+  }
+
+  @include hover-styles {
+    color: $color-gold-warm;
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+/* ===============
+   GHOST ARROW
+=============== */
+
+.ghost-arrow {
+  @extend %arrow-base;
+
+  background: transparent;
+  color: $color-gold;
+  border: 1px solid $color-gold;
+  backdrop-filter: blur(10px);
+
+  &::after {
+    background: $color-gold;
+  }
+
+  @include hover-styles {
+    color: $color-bg-primary;
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+/* ===============
+   LIGHT ARROW
+=============== */
+
+.light-arrow {
+  @extend %arrow-base;
+
+  background: $color-cream;
+  color: $color-bg-primary;
+
+  &::after {
+    background: $gradient-gold-shimmer;
+  }
+
+  @include hover-styles {
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+/* =========================
+   ARROWS PAIR
+========================= */
+
+.arrows-pair {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  @include tablet-landscape {
+    gap: 12px;
+  }
+
+  .slider-arrow:first-child {
+    svg {
+      transform: rotate(180deg);
+    }
+
+    &::after {
+      right: 0;
+    }
+  }
+
+  .slider-arrow:last-child {
+    &::after {
+      left: 0;
+    }
+  }
+}

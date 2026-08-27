@@ -1,0 +1,253 @@
+@use "sass:math";
+
+/* Base Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin button-reset {
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+@mixin link-reset {
+  text-decoration: none;
+  margin: 0;
+}
+
+@mixin list-reset {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Breakpoints */
+@mixin mobile-portrait {
+  @media (max-width: $screen-mobile-max) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin mobile-landscape {
+  @media (max-width: 991px) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin tablet-portrait {
+  @media (min-width: $screen-tablet-portrait-min) {
+    @content;
+  }
+}
+
+@mixin tablet-landscape {
+  @media (min-width: $screen-tablet-landscape-min) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: $screen-laptop-min) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $screen-desktop-min) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @media (min-width: $screen-large-desktop-min) {
+    @content;
+  }
+}
+
+@mixin wide-desktop {
+  @media (min-width: $screen-wide-desktop-min) {
+    @content;
+  }
+}
+
+/* Hover */
+@mixin touch-devices {
+  @media (hover: none) and (pointer: coarse) {
+    @content;
+  }
+}
+
+@mixin hover-devices {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
+
+@mixin hover-styles {
+  @include hover-devices {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+/* Accessibility */
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  border: 0;
+  white-space: nowrap;
+
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  -webkit-clip-path: inset(50%);
+}
+
+@mixin visually-hidden-reset {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  white-space: normal;
+
+  clip: auto;
+  clip-path: none;
+  -webkit-clip-path: none;
+}
+
+@mixin focus-visible-only {
+  @include visually-hidden;
+
+  &:focus-visible {
+    @include visually-hidden-reset;
+    @content;
+  }
+}
+
+@mixin tab-pressed($color: currentColor, $offset: 3px, $width: 3px) {
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: $width solid $color;
+    outline-offset: $offset;
+  }
+}
+
+.sr-only {
+  @include visually-hidden;
+}
+
+/* Typography */
+@mixin text-styling(
+  $font-family,
+  $color,
+  $mobile-size,
+  $mobile-spacing,
+  $mobile-line-height,
+  $desktop-size,
+  $desktop-spacing,
+  $desktop-line-height
+) {
+  font-family: $font-family;
+  color: $color;
+  font-size: $mobile-size;
+  line-height: $mobile-line-height;
+  letter-spacing: letter-spacing($mobile-size, $mobile-spacing);
+  font-optical-sizing: auto;
+
+  @include laptop {
+    font-size: $desktop-size;
+    line-height: $desktop-line-height;
+    letter-spacing: letter-spacing($desktop-size, $desktop-spacing);
+  }
+}
+
+/* Functions */
+@function pxtorem($pxSize) {
+  @return math.div($pxSize, 16px) * 1rem;
+}
+
+@function letter-spacing($font-size, $spacing-percent: 1%) {
+  @return calc($font-size * $spacing-percent / 100);
+}
+
+/* Truncate */
+@mixin truncate($lines) {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  line-clamp: $lines;
+  text-overflow: ellipsis;
+
+  p {
+    display: inline;
+  }
+}
+
+/* Layout */
+.has-custom-paddings {
+  padding-block: 45px;
+
+  @include laptop {
+    padding-block: 90px;
+  }
+}
+
+.common-section-border {
+  width: 100%;
+  border-bottom: 1px solid rgba($color-gold, 0.35);
+}
+
+.content-width {
+  width: calc(100% - 40px);
+  margin: 0 auto;
+
+  @include tablet-portrait {
+    width: calc(100% - 60px);
+  }
+
+  @include desktop {
+    width: calc(100% - 100px);
+  }
+}
+
+.hide {
+  display: none !important;
+}
+
+// Common Image Styling //
+picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  .image,
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+}

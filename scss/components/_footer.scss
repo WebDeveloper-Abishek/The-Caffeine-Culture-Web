@@ -1,0 +1,52 @@
+.site-footer {
+  background: $color-bg-primary;
+  color: $color-cream;
+  padding: 2.3rem 1rem 1rem;
+  border-top: 1px solid rgba($color-gold, 0.35);
+}
+
+.footer-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  margin-bottom: 1.4rem;
+
+  h4 {
+    color: $color-gold;
+    margin-bottom: 0.5rem;
+  }
+
+  a,
+  p {
+    display: block;
+    color: $color-cream;
+    text-decoration: none;
+    margin-bottom: 0.3rem;
+  }
+
+  a {
+    transition: color 0.2s ease;
+
+    @include hover-styles {
+      color: $color-gold-warm;
+    }
+  }
+}
+
+.footer-logo {
+  width: min(260px, 100%);
+  margin-bottom: 0.7rem;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid $color-divider;
+  padding-top: 0.9rem;
+  margin: 0;
+}
+
+@media (max-width: 800px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}

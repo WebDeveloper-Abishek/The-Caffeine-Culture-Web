@@ -1,0 +1,192 @@
+/* =========================
+   BUTTON BASE
+========================= */
+
+/* =========================
+   BUTTON BASE
+========================= */
+
+%btn-base,
+.btn {
+  @include button-reset;
+  width: fit-content;
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 24px;
+  border-radius: 100px;
+  font-family: $font-family-sub;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  cursor: pointer;
+  white-space: nowrap;
+  z-index: 1;
+  transition: color 0.4s ease;
+
+  @include tablet-landscape {
+    font-size: 18px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    transition: transform 0.4s ease;
+  }
+}
+
+button {
+  @include tab-pressed($color-accent-amber);
+}
+
+/* ===============
+   ACTION BUTTON
+=============== */
+
+.action-btn {
+  @extend %btn-base;
+
+  background: $gradient-amber-glow;
+  color: $color-bg-primary;
+  outline: 1px solid rgba($color-gold-warm, 0.4);
+
+  &::after {
+    inset: 0 -20%;
+    background: $gradient-hero;
+    opacity: 0.9;
+    transform: skewX(-45deg) scaleX(0);
+    transform-origin: right center;
+    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @include hover-styles {
+    color: $color-gold-warm;
+
+    &::after {
+      transform: skewX(-45deg) scaleX(1);
+    }
+  }
+}
+
+/* ===============
+   GHOST BUTTON
+=============== */
+
+.ghost-btn {
+  @extend %btn-base;
+
+  background: transparent;
+  outline: 1.5px solid $color-gold;
+  color: $color-gold;
+  backdrop-filter: blur(10px);
+
+  &::after {
+    inset: 0 -30%;
+    background: $color-gold;
+    transform: skewX(-45deg) scaleX(0);
+    transition-duration: 0.5s;
+  }
+
+  @include hover-styles {
+    color: $color-bg-primary;
+
+    &::after {
+      transform: skewX(-45deg) scaleX(1);
+    }
+  }
+}
+
+/* ===============
+   LIGHT BUTTON
+=============== */
+
+.light-btn {
+  @extend %btn-base;
+
+  background: $color-cream;
+  outline: 1px solid rgba($color-cream, 0.5);
+  color: $color-bg-primary;
+
+  &::after {
+    inset: 0 -20%;
+    background: $gradient-gold-shimmer;
+    transform: skewX(-45deg) scaleX(0);
+    transform-origin: left center;
+    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @include hover-styles {
+    &::after {
+      transform: skewX(-45deg) scaleX(1);
+    }
+  }
+}
+
+/* =========================
+   LINK BASE
+========================= */
+
+%link-base {
+  position: relative;
+  width: fit-content;
+
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition: color 0.3s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+
+    width: 100%;
+    height: 2px;
+
+    transform: scaleX(0);
+    transform-origin: left;
+
+    transition: transform 0.35s ease;
+  }
+
+  @include hover-styles {
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+/* ===============
+   DARK LINK
+=============== */
+
+.dark-link {
+  @extend %link-base;
+
+  color: $color-coffee-brown;
+
+  &::after {
+    background: $color-coffee-brown;
+  }
+}
+
+/* ===============
+   LIGHT LINK
+=============== */
+
+.light-link {
+  @extend %link-base;
+
+  color: $color-gold;
+
+  &::after {
+    background: $color-gold;
+  }
+}

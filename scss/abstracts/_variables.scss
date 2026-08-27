@@ -1,0 +1,86 @@
+/* =========================
+   COLORS
+========================= */
+
+$color-bg-primary: #000000;
+$color-bg-secondary: #0f0b08;
+
+$color-coffee-brown: #4c2b0b;
+$color-coffee-light: #84593d;
+$color-gold: #c89e5b;
+$color-gold-warm: #cfb07a;
+$color-accent-amber: #a07235;
+$color-cream: #edd9b6;
+$color-white: #ffffff;
+
+/* Gradient Colors */
+$gradient-hero: linear-gradient(125deg, #383027 0%, #1a110d 45%, #251915 100%);
+$gradient-gold-shimmer: linear-gradient(90deg, #a77228, #dfc08d);
+$gradient-amber-glow: linear-gradient(135deg, #8a5730, #c9a15f);
+
+/* Border / Divider Colors */
+$color-divider: #2a2a2a;
+
+/* =========================
+   BREAKPOINTS
+========================= */
+
+$screen-mobile-max: 767px;
+
+$screen-tablet-portrait-min: 768px;
+$screen-tablet-landscape-min: 992px;
+
+$screen-laptop-min: 1200px;
+$screen-desktop-min: 1440px;
+
+$screen-large-desktop-min: 1600px;
+$screen-wide-desktop-min: 1920px;
+
+/* =========================
+   DESKTOP TYPOGRAPHY
+========================= */
+
+/* Fonts */
+$font-family-main: "Merriweather", serif;
+$font-family-regular: "Merriweather-regular", serif;
+$font-family-sub: "Roboto Slab", serif;
+
+$h1-desktop-size: 46px;
+$h2-desktop-size: 36px;
+$h3-desktop-size: 32px;
+$h4-desktop-size: 24px;
+$body-desktop-size: 17px;
+
+$h1-desktop-line-height: 1.174;
+$h2-desktop-line-height: 1.167;
+$h3-desktop-line-height: 1.1875;
+$h4-desktop-line-height: 1.25;
+$body-desktop-line-height: 1.177;
+
+$h1-desktop-letter-spacing: 1.5;
+$h2-desktop-letter-spacing: 1;
+$h3-desktop-letter-spacing: 0.5;
+$h4-desktop-letter-spacing: 1;
+$body-desktop-letter-spacing: 1;
+
+/* =========================
+   MOBILE TYPOGRAPHY
+========================= */
+
+$h1-mobile-size: 35px;
+$h2-mobile-size: 26px;
+$h3-mobile-size: 24px;
+$h4-mobile-size: 20px;
+$body-mobile-size: 15px;
+
+$h1-mobile-line-height: 1.143;
+$h2-mobile-line-height: 1.154;
+$h3-mobile-line-height: 1.125;
+$h4-mobile-line-height: 1.2;
+$body-mobile-line-height: 1.267;
+
+$h1-mobile-letter-spacing: 0.5;
+$h2-mobile-letter-spacing: 0.3;
+$h3-mobile-letter-spacing: 0.2;
+$h4-mobile-letter-spacing: 1;
+$body-mobile-letter-spacing: 0.7;
