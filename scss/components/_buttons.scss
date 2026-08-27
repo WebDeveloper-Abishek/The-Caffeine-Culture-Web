@@ -2,10 +2,6 @@
    BUTTON BASE
 ========================= */
 
-/* =========================
-   BUTTON BASE
-========================= */
-
 %btn-base,
 .btn {
   @include button-reset;
@@ -157,6 +153,12 @@ button {
   }
 
   @include hover-styles {
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+
+  &.is-active {
     &::after {
       transform: scaleX(1);
     }

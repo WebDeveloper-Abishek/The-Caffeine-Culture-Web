@@ -117,14 +117,15 @@ p,
 
 /* Eyebrow Tag */
 .eyebrow {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.12em;
+  line-height: 1.5;
   text-transform: uppercase;
   color: $color-accent-amber;
 
   @include tablet-landscape {
-    font-size: 16px;
+    font-size: 20px;
     letter-spacing: 0.14em;
   }
 }

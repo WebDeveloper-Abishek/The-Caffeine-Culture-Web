@@ -1,7 +1,9 @@
 .home-page {
   .hero-section {
     position: relative;
-    min-height: 730px;
+    min-height: 710px;
+    display: flex;
+    align-items: stretch;
 
     @include tablet-portrait {
       min-height: 675px;
@@ -11,80 +13,29 @@
       min-height: 780px;
     }
   }
-}
 
-.hero-overlay {
-  width: 100%;
-  display: grid;
-  align-items: center;
-  grid-template-columns: 1.25fr 1fr;
-  gap: 1rem;
-}
-
-.hero-copy {
-  max-width: 60ch;
-  background: rgba($color-bg-primary, 0.72);
-  border: 1px solid rgba($color-gold, 0.45);
-  border-radius: 1rem;
-  padding: clamp(1.2rem, 3vw, 2rem);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
-
-  .hero-kicker {
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: $color-gold;
-    font-size: 0.75rem;
-    margin-bottom: 0.6rem;
-  }
-}
-
-.hero-actions {
-  display: flex;
-  gap: 0.8rem;
-  flex-wrap: wrap;
-}
-
-.home-highlights {
-  padding: 1rem 0 4rem;
-
-  .highlight-grid {
-    margin-top: 1.75rem;
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  }
-
-  .highlight-card {
-    background: $color-bg-secondary;
-    border: 1px solid rgba($color-gold, 0.26);
-    border-radius: 1rem;
-    padding: 1.25rem;
-    transition:
-      transform 0.22s ease,
-      box-shadow 0.22s ease;
-
-    h3 {
-      color: $color-gold;
-      margin-bottom: 0.4rem;
-    }
-
-    @include hover-styles {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    }
-  }
-}
-
-@media (max-width: 900px) {
-  .hero-overlay {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-brand {
-    order: -1;
+  .hero-image {
+    width: 100%;
+    height: 710px;
 
     img {
-      width: min(64vw, 280px);
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
     }
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 15px;
   }
 }
